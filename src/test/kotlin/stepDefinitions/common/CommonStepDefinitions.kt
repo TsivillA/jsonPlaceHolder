@@ -14,5 +14,4 @@ class CommonStepDefinitions(private val scenarioContext: ScenarioContext) {
         response = scenarioContext.get("response")
         Assertions.assertEquals(Integer.parseInt(statusCode), response?.statusCode());
     }
-
 }

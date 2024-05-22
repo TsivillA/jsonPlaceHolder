@@ -1,11 +1,13 @@
 package service
 
 import freemarker.template.Template
+import io.qameta.allure.Step
 import io.restassured.response.Response
 import utils.Payload
 
 class CRUDService {
 
+    @Step("Send create post request")
     fun postNewResource(title: String, body: String, userId: String): Response? {
         val httpClientService = HttpClientService(BASE_URL)
 
@@ -24,6 +26,7 @@ class CRUDService {
         return httpClientService.sendPostRequest(POST_ENDPOINT, requestBody, headers)
     }
 
+    @Step("Send get post request")
     fun getResource(id: String): Response? {
         val httpClientService = HttpClientService(BASE_URL)
         val headers = mutableMapOf<String, String>()
@@ -32,6 +35,7 @@ class CRUDService {
         return httpClientService.sendGetRequest(POST_ENDPOINT, headers, id)
     }
 
+    @Step("Send update post request")
     fun updateResource(id: String, title: String, body: String, userId: String): Response? {
         val httpClientService = HttpClientService(BASE_URL)
         val headers = mutableMapOf<String, String>()
@@ -50,6 +54,7 @@ class CRUDService {
         return httpClientService.sendPutRequest("$POST_ENDPOINT/$id", requestBody, headers);
     }
 
+    @Step("Send delete post request")
     fun deleteResource(id: String): Response? {
         val httpClientService = HttpClientService(BASE_URL)
         val headers = mutableMapOf<String, String>()

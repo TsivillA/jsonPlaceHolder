@@ -9,7 +9,6 @@ import java.io.StringWriter
 
 class Payload {
 
-
     /**
      * Returns the request payload created with proper values for the keys
      *

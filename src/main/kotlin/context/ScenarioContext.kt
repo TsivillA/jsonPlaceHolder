@@ -44,5 +44,6 @@ class ScenarioContext {
      *
      * @return Cucumber Scenario object
      */
-    fun getScenario(): Scenario? { return scenario}
+    fun
+            getScenario(): Scenario? { return scenario}
 }

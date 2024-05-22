@@ -29,14 +29,9 @@ class ConfigReader {
         }
         return properties
     }
-
     fun getValue(key: String, properties: Properties?): String {
         val value: String = properties?.getProperty(key.uppercase(Locale.getDefault()))
-            ?: try {
-                throw Exception("The key \"" + key.uppercase(Locale.getDefault()) + "\" does not exist in config file.")
-            } catch (e: Exception) {
-                throw RuntimeException(e)
-            }
+            ?: throw Exception("The key \"" + key.uppercase(Locale.getDefault()) + "\" does not exist in config file.")
         return value
     }
 }
