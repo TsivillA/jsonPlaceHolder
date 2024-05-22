@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
     kotlin("jvm") version "1.9.23"
     id("io.qameta.allure") version "2.11.2"
@@ -28,6 +30,11 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true
+        exceptionFormat = TestExceptionFormat.FULL
+    }
 }
 
 allure {
